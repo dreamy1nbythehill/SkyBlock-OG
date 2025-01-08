@@ -38,7 +38,10 @@ object Config {
     fun getPostgresUserPassword(): String {
         return config.get("postgresUserPassword") as String
     }
-    fun getPostgresdbUrl(): String {
-        return config.get("postgresdbUrl") as String
+    fun getPostgresUrl(): String {
+        return config.get("postgresUrl") as String
+    }
+    fun getPostgresPort(): String {
+        return config.get("postgresPort") as String
     }
 }

@@ -1,5 +1,6 @@
 #Template Config Options
-postgresdbUrl : "jdbc:postgresql://localhost:5432/skyblockdb"
+postgresUrl : "localhost"
+postgresPort : "5432"
 postgresUser : "skyblock"
 postgresUserPassword : "skyblock"
 

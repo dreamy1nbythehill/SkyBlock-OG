@@ -1,5 +1,5 @@
 // This is free and unencumbered software released into the public domain.
-// Author: Sekalol15
+// Author: dreamy1nbythehill
 package plugin
 
 import org.bukkit.Bukkit
