@@ -10,7 +10,7 @@ import plugin.commands.island
 
 
 // Extending this class is standard bukkit boilerplate for any plugin, or else the server software won't load the classes.
-class KotlinTemplateOG : JavaPlugin() {
+class SkyBlockOG : JavaPlugin() {
 
     companion object {
         lateinit var plugin: JavaPlugin

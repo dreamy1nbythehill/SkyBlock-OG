@@ -15,6 +15,8 @@ class island : CommandExecutor {
         }
 
         else {
+            //add subcommand for island generation
+            //check if player already has island
             sender.sendMessage("Generating island....")
 
 
