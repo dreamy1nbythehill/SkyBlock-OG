@@ -12,6 +12,7 @@ import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldedit.session.ClipboardHolder;
 import com.sk89q.worldedit.world.World;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -20,7 +21,7 @@ import java.io.IOException;
 
 public class IslandGenerator {
 
-    public static void Generator(int x, int y, int z, @NotNull CommandSender player) throws IOException, WorldEditException {
+    public static void Generator(int x, int y, int z, Player player) throws IOException, WorldEditException {
         File schematic = new File(SkyBlockOG.Companion.getPlugin().getDataFolder(), "normal.schem");
         ClipboardFormat format = ClipboardFormats.findByFile(schematic);
         ClipboardReader reader = format.getReader(new FileInputStream(schematic));

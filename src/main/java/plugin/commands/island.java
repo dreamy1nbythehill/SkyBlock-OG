@@ -24,9 +24,7 @@ public final class island implements CommandExecutor {
             int[] placeHolderNum = {500, 500, 50};
             try {
                 IslandGenerator.Generator(placeHolderNum[0], placeHolderNum[1], placeHolderNum[2], sender);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            } catch (WorldEditException e) {
+            } catch (IOException | WorldEditException e) {
                 throw new RuntimeException(e);
             }
             return true;
