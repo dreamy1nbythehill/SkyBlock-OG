@@ -25,9 +25,7 @@ public final class BiomeModifier extends BiomeProvider {
     @NotNull
     public List getBiomes(@NotNull WorldInfo worldInfo) {
         Intrinsics.checkNotNullParameter(worldInfo, "worldInfo");
-        Biome[] var3 = new Biome[]{Biome.OCEAN};
-        ArrayList<Biome> var2 = Lists.newArrayList(var3);
-        Intrinsics.checkNotNullExpressionValue(var2, "newArrayList(...)");
-        return var2;
+        Biome[] biome  = new Biome[]{Biome.OCEAN};
+        return List.of(biome);
     }
 }

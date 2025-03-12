@@ -5,7 +5,6 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 
-import net.trueog.utilitiesog.UtilitiesOG;
 
 public class Listeners implements Listener {
 
