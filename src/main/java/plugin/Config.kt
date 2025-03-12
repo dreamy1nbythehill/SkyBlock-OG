@@ -1,5 +1,6 @@
 // This is free and unencumbered software released into the public domain.
 // Author: dreamy1nbytheill
+
 package plugin
 
 import org.bukkit.configuration.file.FileConfiguration
