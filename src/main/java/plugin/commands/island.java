@@ -14,17 +14,17 @@ import plugin.IslandGenerator;
 import java.io.IOException;
 
 public final class island implements CommandExecutor {
-    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @Nullable String[] args) {
+    public boolean onCommand( CommandSender sender, Command command, String label, String[] args) {
 
         if (!(sender instanceof Player)) {
             sender.sendMessage("You aren't a Player!");
             return true;
         } else {
-            sender.sendMessage("Generating island....");
-            int[] placeHolderNum = {500, 500, 50};
+            int[] placeHolderNum = {500, 200, 500};
+            sender.sendMessage("Generating island at " + placeHolderNum[0] + " " + placeHolderNum[1] + " " + placeHolderNum[2]);
             try {
-                IslandGenerator.Generator(placeHolderNum[0], placeHolderNum[1], placeHolderNum[2], sender);
-            } catch (IOException | WorldEditException e) {
+                IslandGenerator.Generator(placeHolderNum[0], placeHolderNum[1], placeHolderNum[2], (Player) sender);
+            } catch (IOException e) {
                 throw new RuntimeException(e);
             }
             return true;

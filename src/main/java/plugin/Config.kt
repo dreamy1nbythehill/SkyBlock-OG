@@ -1,5 +1,5 @@
 // This is free and unencumbered software released into the public domain.
-// Author: dreamy1nbytheill
+// Author: dreamy1nbythehill
 
 package plugin
 
@@ -11,9 +11,9 @@ object Config {
     private lateinit var file: File
 
     fun load() {
-        file = File(SkyBlockOG.plugin.dataFolder, "config.yml")
+        file = File(SkyBlockOG.getPlugin().dataFolder, "config.yml")
         if (!file.exists()) {
-            SkyBlockOG.plugin.saveDefaultConfig()
+            SkyBlockOG.getPlugin().saveDefaultConfig()
         }
 
         config = YamlConfiguration.loadConfiguration(file)

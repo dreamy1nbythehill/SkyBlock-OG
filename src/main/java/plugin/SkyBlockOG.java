@@ -16,74 +16,43 @@ import org.jetbrains.annotations.Nullable;
 import plugin.commands.island;
 
 import java.io.IOException;
+import java.util.logging.Level;
 
 public final class SkyBlockOG extends JavaPlugin {
-    @NotNull
-    public static final Companion Companion = new Companion((DefaultConstructorMarker)null);
-    public static JavaPlugin plugin;
-    @Nullable
+    private static SkyBlockOG plugin;
     private static Plugin worldedit = Bukkit.getServer().getPluginManager().getPlugin("WorldEdit-Bukkit");
 
-    @NotNull
-    public ChunkGenerator getDefaultWorldGenerator(@NotNull String worldName, @Nullable String id) {
-        Intrinsics.checkNotNullParameter(worldName, "worldName");
-        return (ChunkGenerator)(new GenerationModifier());
+    @Override
+    public ChunkGenerator getDefaultWorldGenerator(String worldName, String id) {
+        getLogger().log(Level.WARNING, "CustomChunkGenerator is used!");
+        return new GenerationModifier(); // Return an instance of the chunk generator we want to use.
     }
 
-    @NotNull
+    @Override
     public BiomeProvider getDefaultBiomeProvider(@NotNull String worldName, @Nullable String id) {
-        Intrinsics.checkNotNullParameter(worldName, "worldName");
-        return (BiomeProvider)(new BiomeModifier());
+        return new BiomeModifier();
     }
 
     public void onEnable() {
-        Companion.setPlugin(this);
+        plugin = this;
         this.getServer().getPluginManager().registerEvents((Listener)(new Listeners()), (Plugin)this);
-        try {
-            Config.INSTANCE.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        PluginCommand var1 = this.getCommand("island");
-        if (var1 != null) {
-            var1.setExecutor((CommandExecutor)(new island()));
+        Config.INSTANCE.load();
+        PluginCommand islandCommand = this.getCommand("island");
+        if (islandCommand != null) {
+            islandCommand.setExecutor((CommandExecutor)(new island()));
         }
 
     }
 
-
-    public static final class Companion {
-        private Companion() {
-        }
-
-        @NotNull
-        public final JavaPlugin getPlugin() {
-            JavaPlugin var1 = SkyBlockOG.plugin;
-            if (var1 != null) {
-                return var1;
-            } else {
-                Intrinsics.throwUninitializedPropertyAccessException("plugin");
-                return null;
-            }
-        }
-
-        public final void setPlugin(@NotNull JavaPlugin var1) {
-            Intrinsics.checkNotNullParameter(var1, "<set-?>");
-            SkyBlockOG.plugin = var1;
-        }
-
-        @Nullable
         public final Plugin getWorldedit() {
             return SkyBlockOG.worldedit;
         }
 
-        public final void setWorldedit(@Nullable Plugin var1) {
-            SkyBlockOG.worldedit = var1;
+        public final void setWorldedit(Plugin wedit) {
+            SkyBlockOG.worldedit = wedit;
         }
 
-        // $FF: synthetic method
-        public Companion(DefaultConstructorMarker $constructor_marker) {
-            this();
-        }
+    public static SkyBlockOG getPlugin() {
+        return plugin;
     }
 }
